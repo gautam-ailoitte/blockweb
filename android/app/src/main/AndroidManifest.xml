@@ -25,8 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-<!--         service registration for web blocking-->
+<!--service for web blocknig-->
         <service
             android:name=".WebBlockAccessibilityService"
             android:exported="true"

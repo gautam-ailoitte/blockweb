@@ -13,7 +13,11 @@ class WebBlockAccessibilityService : AccessibilityService() {
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         if (event == null || event.eventType != AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) return
 
-        val rootNode = rootInActiveWindow ?: return
+        val rootNode = rootInActiveWindow
+        if (rootNode == null) {
+            Log.e("WebBlockService", "Failed to retrieve root node.")
+            return
+        }
         checkAndBlockWebsite(rootNode)
     }
 
